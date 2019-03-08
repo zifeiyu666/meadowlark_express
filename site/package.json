@@ -5,11 +5,28 @@
   "main": "cosmoplat.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " node meadowlark.js "
+    "start": " nodemon meadowlark.js "
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "body-parser": "^1.18.3",
+    "compression": "^1.7.3",
+    "connect": "^3.6.6",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "express-session": "^1.15.6",
+    "jquery-file-upload-middleware": "^0.1.8",
+    "multer": "^1.4.1",
+    "nodemailer": "^5.1.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "grunt": "^1.0.3",
+    "grunt-cafe-mocha": "^0.1.13",
+    "grunt-contrib-jshint": "^2.0.0",
+    "grunt-exec": "^3.0.0",
+    "mocha": "^6.0.2"
   }
 }

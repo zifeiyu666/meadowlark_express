@@ -4,12 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  {{{_sections.head}}}
   <title>Haier Cosmoplat</title>
+  {{#if showTests}}
+    <link rel='stylesheet' href='/vendor/mocha.css'>
+  {{/if}}
+
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css">
+  <style>
+      body {
+          padding-top: 50px;
+          padding-bottom: 20px;
+      }
+  </style>
+  <link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap-theme.min.css">
+  {{{_sections.css}}}
 </head>
 <body>
   <header>
+    {{!-- handlebar comment --}}
+    <!-- html comment -->
     <img style='background: #000' src="/img/logo.png" alt="Haier Cosmoplat Logo">
   </header>
+  {{#if flash}}
+    <div class="alert alert-dismissible alert-{{flash.type}}"> 
+      <button type="button" class="close"
+        data-dismiss="alert" aria-hidden="true">&times;</button>
+      <strong>{{flash.intro}}</strong> {{{flash.message}}}
+    </div>
+  {{/if}}
   {{{body}}}
+  {{#if showTests}}
+    <div id='mocha'></div>
+    <script src='/vendor/mocha.js'></script>
+    <script src='/vendor/chai.js'></script>
+    <script>
+      mocha.ui('tdd')
+      let assert = chai.assert
+    </script>
+    <script src='/qa/global-test.js'></script>
+    {{#if pageTestScript}}
+      <script src='{{pageTestScript}}'></script>
+    {{/if}}
+    <script>mocha.run()</script>
+  {{/if}}
+
+  <script src='//code.jquery.com/jquery-2.0.2.min.js'></script>
+  {{{_sections.jquery}}}
 </body>
 </html>
